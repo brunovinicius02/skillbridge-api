@@ -122,6 +122,8 @@ public class RecomendacaoIAService {
         
         try (Response response = client.target(endpoint)
                 .request(MediaType.APPLICATION_JSON)
+                .header("Content-Type", "application/json")
+                .accept(MediaType.APPLICATION_JSON)
                 .post(Entity.json(request))) {
 
             if (response.getStatus() != 200) {
